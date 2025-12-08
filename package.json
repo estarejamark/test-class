@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@radix-ui/react-switch": "^1.2.6",
+    "@stomp/stompjs": "^7.2.1",
+    "@tabler/icons-react": "^3.35.0",
+    "sockjs-client": "^1.6.1",
+    "supports-color": "^10.2.2"
+  },
+  "devDependencies": {
+    "@types/sockjs-client": "^1.5.4",
+    "typescript": "^5.9.3"
+  }
+}
