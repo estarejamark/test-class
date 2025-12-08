@@ -2,7 +2,7 @@
 nixPkgs = ["jdk21"]
 
 [phases.build]
-cmds = ["./gradlew build -x test"]
+cmds = ["chmod +x gradlew", "./gradlew build -x test --no-daemon"]
 
 [start]
-cmd = "java -jar build/libs/CTU_DB_API-0.0.1-SNAPSHOT.jar"
+cmd = "java -Xmx512m -jar build/libs/CTU_DB_API-0.0.1-SNAPSHOT.jar"
