@@ -1,8 +1,0 @@
-[phases.setup]
-nixPkgs = ["jdk21", "gradle"]
-
-[phases.build]
-cmds = ["gradle build -x test --no-daemon"]
-
-[start]
-cmd = "java -Xmx512m -jar build/libs/CTU_DB_API-0.0.1-SNAPSHOT.jar"
