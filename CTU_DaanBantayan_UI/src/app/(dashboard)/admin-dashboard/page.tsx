@@ -26,8 +26,6 @@ const LoadingFallback = () => (
   </div>
 );
 
-import data from "./data.json";
-
 export default function Page() {
   const [activeView, setActiveView] = useState<NavigationItem>("dashboard");
   const [navigationParams, setNavigationParams] = useState<Record<string, string>>({});
