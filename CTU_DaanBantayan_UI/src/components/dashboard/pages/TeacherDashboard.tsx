@@ -13,7 +13,7 @@ import MyQuarterPackageComponent from "@/components/dashboard/pages/MyQuarterPac
 import SelectClassSubjectComponent from "@/components/dashboard/pages/SelectClassSubjectComponent";
 import AttendanceComponent from "@/components/dashboard/pages/AttendanceComponent";
 import QuarterlyEncodingComponent from "@/components/dashboard/pages/QuarterlyEncodingComponent";
-import MaintainancePage from "@/components/MaintainancePage";
+
 import SaveOptions from "@/components/dashboard/pages/SaveOptions";
 import Status from "@/components/dashboard/pages/Status";
 import ValidateRecords from "@/components/dashboard/pages/ValidateRecords";
@@ -132,7 +132,7 @@ export default function TeacherDashboard() {
         console.log("🔄 TeacherDashboard - rendering ValidateRecords component");
         return <ValidateRecords />;
       case "adviser-dashboard":
-        return <MaintainancePage />;
+        return <div className="p-6"><h2 className="text-2xl font-bold">Adviser Dashboard</h2><p>Coming soon...</p></div>;
       case "student-feedback-responses":
         return <StudentFeedbackResponses />;
       default:
