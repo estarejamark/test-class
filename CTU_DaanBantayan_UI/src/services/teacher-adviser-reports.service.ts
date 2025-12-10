@@ -112,45 +112,43 @@ class TeacherAdviserReportsService {
     return response.data;
   }
 
-  async getAvailableSections(): Promise<any[]> {
-    const response = await apiClient.get<any[]>('/teacher-adviser-reports/available-sections');
+  async getAvailableSections(): Promise<SectionOption[]> {
+    const response = await apiClient.get<SectionOption[]>('/teacher-adviser-reports/available-sections');
     return response.data;
   }
 
-  async getTeacherGradeSummary(year: string, sectionId: string): Promise<any> {
-    // This is a simplified call - in reality, you'd need subjectId and quarter
-    // For now, using default values or making assumptions
-    const response = await apiClient.get(`/teacher-adviser-reports/teacher/class-grade-summary?sectionId=${sectionId}&subjectId=default&quarter=Q1`);
+  async getTeacherGradeSummary(_year: string, sectionId: string): Promise<ReportResponse<ClassGradeSummary>> {
+    const response = await apiClient.get<ReportResponse<ClassGradeSummary>>(`/teacher-adviser-reports/teacher/class-grade-summary?sectionId=${sectionId}&subjectId=default&quarter=Q1`);
     return response.data;
   }
 
-  async getTeacherAttendanceSummary(year: string, sectionId: string): Promise<any> {
-    const response = await apiClient.get(`/teacher-adviser-reports/teacher/class-attendance-summary?sectionId=${sectionId}&subjectId=default&quarter=Q1`);
+  async getTeacherAttendanceSummary(_year: string, sectionId: string): Promise<ReportResponse<ClassAttendanceSummary[]>> {
+    const response = await apiClient.get<ReportResponse<ClassAttendanceSummary[]>>(`/teacher-adviser-reports/teacher/class-attendance-summary?sectionId=${sectionId}&subjectId=default&quarter=Q1`);
     return response.data;
   }
 
-  async getTeacherStudentReport(year: string, sectionId: string): Promise<any> {
-    const response = await apiClient.get(`/teacher-adviser-reports/teacher/student-report/default?subjectId=default&quarter=Q1`);
+  async getTeacherStudentReport(_year: string, _sectionId: string): Promise<ReportResponse<IndividualStudentReport>> {
+    const response = await apiClient.get<ReportResponse<IndividualStudentReport>>(`/teacher-adviser-reports/teacher/student-report/default?subjectId=default&quarter=Q1`);
     return response.data;
   }
 
-  async getAdviserClassGeneral(year: string, sectionId: string): Promise<any> {
-    const response = await apiClient.get(`/teacher-adviser-reports/adviser/class-general?quarter=Q1`);
+  async getAdviserClassGeneral(_year: string, _sectionId: string): Promise<ReportResponse<AdvisoryClassGeneral[]>> {
+    const response = await apiClient.get<ReportResponse<AdvisoryClassGeneral[]>>(`/teacher-adviser-reports/adviser/class-general?quarter=Q1`);
     return response.data;
   }
 
-  async getAdviserConsolidatedAttendance(year: string, sectionId: string): Promise<any> {
-    const response = await apiClient.get(`/teacher-adviser-reports/adviser/attendance-consolidated?quarter=Q1&startDate=2024-01-01&endDate=2024-12-31`);
+  async getAdviserConsolidatedAttendance(_year: string, _sectionId: string): Promise<ReportResponse<AdvisoryAttendanceConsolidated[]>> {
+    const response = await apiClient.get<ReportResponse<AdvisoryAttendanceConsolidated[]>>(`/teacher-adviser-reports/adviser/attendance-consolidated?quarter=Q1&startDate=2024-01-01&endDate=2024-12-31`);
     return response.data;
   }
 
-  async getAdviserBehaviorConduct(year: string, sectionId: string): Promise<any> {
-    const response = await apiClient.get(`/teacher-adviser-reports/adviser/behaviour-conduct?quarter=Q1`);
+  async getAdviserBehaviorConduct(_year: string, _sectionId: string): Promise<ReportResponse<BehaviourConductReport[]>> {
+    const response = await apiClient.get<ReportResponse<BehaviourConductReport[]>>(`/teacher-adviser-reports/adviser/behaviour-conduct?quarter=Q1`);
     return response.data;
   }
 
-  async getAdviserParentCommunication(year: string, sectionId: string): Promise<any> {
-    const response = await apiClient.get(`/teacher-adviser-reports/adviser/parent-communication?startDate=2024-01-01&endDate=2024-12-31`);
+  async getAdviserParentCommunication(_year: string, _sectionId: string): Promise<ReportResponse<ParentCommunicationActivity[]>> {
+    const response = await apiClient.get<ReportResponse<ParentCommunicationActivity[]>>(`/teacher-adviser-reports/adviser/parent-communication?startDate=2024-01-01&endDate=2024-12-31`);
     return response.data;
   }
 
