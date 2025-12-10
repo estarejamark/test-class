@@ -206,7 +206,8 @@ class ApiClient {
     endpoint: string,
     headers?: Record<string, string>
   ): Promise<ApiResponse<T>> {
-    const response = await this.axiosInstance.get<T>(endpoint, {
+    const url = endpoint.startsWith('http') ? endpoint : `${API_BASE_URL}${endpoint}`;
+    const response = await this.axiosInstance.get<T>(url, {
       headers,
       withCredentials: true,
     });
@@ -218,7 +219,8 @@ class ApiClient {
     data?: unknown,
     headers?: Record<string, string>
   ): Promise<ApiResponse<T>> {
-    const response = await this.axiosInstance.post<T>(endpoint, data, {
+    const url = endpoint.startsWith('http') ? endpoint : `${API_BASE_URL}${endpoint}`;
+    const response = await this.axiosInstance.post<T>(url, data, {
       headers,
       withCredentials: true,
     });
@@ -230,7 +232,8 @@ class ApiClient {
     data?: unknown,
     headers?: Record<string, string>
   ): Promise<ApiResponse<T>> {
-    const response = await this.axiosInstance.put<T>(endpoint, data, {
+    const url = endpoint.startsWith('http') ? endpoint : `${API_BASE_URL}${endpoint}`;
+    const response = await this.axiosInstance.put<T>(url, data, {
       headers,
       withCredentials: true,
     });
@@ -242,7 +245,8 @@ class ApiClient {
     data?: unknown,
     headers?: Record<string, string>
   ): Promise<ApiResponse<T>> {
-    const response = await this.axiosInstance.patch<T>(endpoint, data, {
+    const url = endpoint.startsWith('http') ? endpoint : `${API_BASE_URL}${endpoint}`;
+    const response = await this.axiosInstance.patch<T>(url, data, {
       headers,
       withCredentials: true,
     });
@@ -253,7 +257,8 @@ class ApiClient {
     endpoint: string,
     headers?: Record<string, string>
   ): Promise<ApiResponse<T>> {
-    const response = await this.axiosInstance.delete<T>(endpoint, {
+    const url = endpoint.startsWith('http') ? endpoint : `${API_BASE_URL}${endpoint}`;
+    const response = await this.axiosInstance.delete<T>(url, {
       headers,
       withCredentials: true,
     });
