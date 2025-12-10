@@ -8,10 +8,9 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://test-class-prod
 
 // Debug logging for API base URL
 console.log("🔍 API_BASE_URL:", API_BASE_URL);
-console.log(
-  "🔍 process.env.NEXT_PUBLIC_API_URL:",
-  process.env.NEXT_PUBLIC_API_URL
-);
+console.log("🔍 process.env.NEXT_PUBLIC_API_URL:", process.env.NEXT_PUBLIC_API_URL);
+console.log("🔍 All env vars:", Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC')));
+console.log("🔍 NODE_ENV:", process.env.NODE_ENV);
 
 /**
  * Custom error class for API-related errors
@@ -43,6 +42,7 @@ class ApiClient {
   private axiosInstance: AxiosInstance;
 
   constructor(baseURL: string = API_BASE_URL) {
+    console.log("🔧 ApiClient initialized with baseURL:", baseURL);
     this.axiosInstance = axios.create({
       baseURL,
       headers: { "Content-Type": "application/json" },
